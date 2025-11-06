@@ -1,0 +1,28 @@
+// Farben
+$color-primary: #1a1a1a;      // Anthrazit
+$color-secondary: #2d2d2d;    // Dunkelgrau
+$color-dark: #0d0d0d;         // Noch dunkler für Kontrast
+$color-text: #ffffff;         // Weiß
+$color-text-gray: #b0b0b0;    // Helles Grau für Beschreibungen
+$color-accent-red: #e63946;   // Rot (Hauptakzent)
+$color-accent-blue: #457b9d;  // Blau (Sekundärakzent)
+
+// Schriften
+$font-heading: 'Montserrat', sans-serif;
+$font-body: 'Inter', sans-serif;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+
+// Abstände
+$spacing-xs: 0.5rem;   // 8px
+$spacing-sm: 1rem;     // 16px
+$spacing-md: 2rem;     // 32px
+$spacing-lg: 4rem;     // 64px
+$spacing-xl: 6rem;     // 96px
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;

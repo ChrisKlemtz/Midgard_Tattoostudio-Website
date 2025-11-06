@@ -1,0 +1,276 @@
+@import './variables';
+
+.admin-dashboard {
+  min-height: 100vh;
+  background-color: $color-dark;
+}
+
+.admin-header {
+  background-color: $color-primary;
+  padding: $spacing-md;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid $color-accent-red;
+  
+  h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  .btn-logout {
+    padding: 0.75rem 1.5rem;
+    background-color: $color-accent-red;
+    color: $color-text;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+    
+    &:hover {
+      background-color: darken($color-accent-red, 10%);
+    }
+  }
+}
+
+.admin-tabs {
+  display: flex;
+  background-color: $color-primary;
+  border-bottom: 2px solid $color-secondary;
+  
+  button {
+    flex: 1;
+    padding: $spacing-md;
+    background: none;
+    border: none;
+    color: $color-text-gray;
+    font-family: $font-heading;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all $transition-fast;
+    border-bottom: 3px solid transparent;
+    
+    &:hover {
+      background-color: $color-secondary;
+    }
+    
+    &.active {
+      color: $color-text;
+      border-bottom-color: $color-accent-red;
+      background-color: $color-secondary;
+    }
+  }
+}
+
+.admin-content {
+  padding: $spacing-lg;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.admin-section {
+  h2 {
+    margin-bottom: $spacing-lg;
+    font-size: 2rem;
+  }
+  
+  h3 {
+    margin-bottom: $spacing-md;
+    font-size: 1.5rem;
+    color: $color-text;
+  }
+}
+
+.admin-form {
+  background-color: $color-primary;
+  padding: $spacing-lg;
+  border-radius: 8px;
+  margin-bottom: $spacing-xl;
+  border: 2px solid $color-secondary;
+  
+  .form-group {
+    margin-bottom: $spacing-md;
+    
+    label {
+      display: block;
+      font-family: $font-heading;
+      font-weight: 600;
+      margin-bottom: $spacing-xs;
+      color: $color-text;
+    }
+    
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 1rem;
+      background-color: $color-secondary;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      color: $color-text;
+      font-family: $font-body;
+      font-size: 1rem;
+      transition: border-color $transition-fast;
+      
+      &:focus {
+        outline: none;
+        border-color: $color-accent-red;
+      }
+    }
+    
+    textarea {
+      resize: vertical;
+    }
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: $spacing-sm;
+  }
+}
+
+// Image Grid
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: $spacing-md;
+}
+
+.image-card {
+  background-color: $color-primary;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid $color-secondary;
+  transition: border-color $transition-fast;
+  
+  &:hover {
+    border-color: $color-accent-red;
+  }
+  
+  img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  
+  .image-info {
+    padding: $spacing-sm;
+    
+    h4 {
+      font-size: 1rem;
+      margin-bottom: $spacing-xs;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background-color: $color-accent-blue;
+      color: $color-text;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 3px;
+    }
+  }
+  
+  .btn-delete {
+    width: 100%;
+    padding: $spacing-sm;
+    background-color: darken($color-accent-red, 10%);
+    color: $color-text;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+    
+    &:hover {
+      background-color: $color-accent-red;
+    }
+  }
+}
+
+// Services List
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.service-item {
+  background-color: $color-primary;
+  padding: $spacing-md;
+  border-radius: 8px;
+  border: 2px solid $color-secondary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-md;
+  
+  @media (max-width: $breakpoint-mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .service-content {
+    flex: 1;
+    
+    h4 {
+      font-size: 1.3rem;
+      margin-bottom: $spacing-xs;
+    }
+    
+    p {
+      color: $color-text-gray;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .price-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: $color-accent-red;
+      color: $color-text;
+      font-weight: 700;
+      border-radius: 4px;
+    }
+  }
+  
+  .service-actions {
+    display: flex;
+    gap: $spacing-sm;
+    
+    button {
+      padding: 0.75rem 1.25rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all $transition-fast;
+    }
+    
+    .btn-edit {
+      background-color: $color-accent-blue;
+      color: $color-text;
+      
+      &:hover {
+        background-color: darken($color-accent-blue, 10%);
+      }
+    }
+    
+    .btn-delete {
+      background-color: darken($color-accent-red, 10%);
+      color: $color-text;
+      
+      &:hover {
+        background-color: $color-accent-red;
+      }
+    }
+  }
+}
+
+.admin-list {
+  background-color: $color-primary;
+  padding: $spacing-lg;
+  border-radius: 8px;
+  border: 2px solid $color-secondary;
+}

@@ -1,0 +1,120 @@
+@import './variables';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: transparent;
+  transition: all $transition-normal;
+  padding: $spacing-md 0;
+  
+  &.scrolled {
+    background-color: rgba($color-primary, 0.95);
+    backdrop-filter: blur(10px);
+    padding: $spacing-sm 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &-logo {
+    font-family: $font-heading;
+    font-size: 1.5rem;
+    font-weight: 900;
+    
+    .logo-text {
+      color: $color-text;
+    }
+    
+    .logo-accent {
+      color: $color-accent-red;
+      margin-left: 0.3rem;
+    }
+  }
+  
+  &-menu {
+    display: flex;
+    gap: $spacing-md;
+    list-style: none;
+    
+    @media (max-width: $breakpoint-mobile) {
+      display: none;
+    }
+    
+    a {
+      font-family: $font-heading;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $color-accent-red;
+        transition: width $transition-normal;
+      }
+      
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+  
+  // Mobile Toggle Button
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    
+    @media (max-width: $breakpoint-mobile) {
+      display: flex;
+    }
+    
+    span {
+      width: 25px;
+      height: 2px;
+      background-color: $color-text;
+      transition: all $transition-fast;
+    }
+  }
+  
+  // Mobile Menu
+  &-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    list-style: none;
+    margin-top: $spacing-md;
+    padding-top: $spacing-md;
+    border-top: 1px solid $color-secondary;
+    
+    a {
+      font-family: $font-heading;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      padding: $spacing-sm 0;
+      
+      &:hover {
+        color: $color-accent-red;
+        padding-left: $spacing-xs;
+      }
+    }
+  }
+}

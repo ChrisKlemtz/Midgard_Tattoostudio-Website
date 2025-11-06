@@ -1,0 +1,102 @@
+@import './variables';
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  &-bg {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    bottom: -50px;
+    background: 
+      linear-gradient(135deg, rgba($color-primary, 0.8), rgba($color-dark, 0.9)),
+      url('https://images.unsplash.com/photo-1590246814883-57c511e59b90?w=1920') center/cover;
+    z-index: -1;
+  }
+  
+  &-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba($color-accent-red, 0.15), transparent 60%);
+  }
+  
+  &-content {
+    text-align: center;
+    padding: $spacing-md;
+    max-width: 900px;
+  }
+  
+  &-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    margin-bottom: $spacing-sm;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    
+    // Gradient Text Effect
+    background: linear-gradient(135deg, $color-text 0%, $color-accent-red 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  &-subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 300;
+    margin-bottom: $spacing-lg;
+    color: $color-text-gray;
+  }
+  
+  &-buttons {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  // Scroll Indicator
+  .scroll-indicator {
+    position: absolute;
+    bottom: $spacing-lg;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    .mouse {
+      width: 30px;
+      height: 50px;
+      border: 2px solid $color-text;
+      border-radius: 20px;
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 8px;
+        background-color: $color-accent-red;
+        border-radius: 2px;
+        animation: scroll 2s infinite;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    top: 8px;
+  }
+  100% {
+    opacity: 0;
+    top: 25px;
+  }
+}

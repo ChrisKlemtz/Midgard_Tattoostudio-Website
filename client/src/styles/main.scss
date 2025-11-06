@@ -1,0 +1,181 @@
+@import './variables';
+
+// Google Fonts importieren
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+// Reset & Base
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  background-color: $color-primary;
+  color: $color-text;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: $spacing-sm;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  margin-bottom: $spacing-sm;
+  color: $color-text-gray;
+}
+
+a {
+  color: $color-text;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $color-accent-red;
+  }
+}
+
+// Container
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  
+  @media (max-width: $breakpoint-mobile) {
+    padding: 0 $spacing-sm;
+  }
+}
+
+// Section
+.section {
+  padding: $spacing-xl 0;
+  
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-lg 0;
+  }
+}
+
+// Button Styles
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-normal;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: left $transition-normal;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+  
+  &-primary {
+    background-color: $color-accent-red;
+    color: $color-text;
+    
+    &:hover {
+      background-color: darken($color-accent-red, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba($color-accent-red, 0.3);
+    }
+  }
+  
+  &-secondary {
+    background-color: transparent;
+    color: $color-text;
+    border: 2px solid $color-text;
+    
+    &:hover {
+      background-color: $color-text;
+      color: $color-primary;
+    }
+  }
+}
+
+// Loading Spinner
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  
+  &-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid $color-secondary;
+    border-top-color: $color-accent-red;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// Grid System
+.grid {
+  display: grid;
+  gap: $spacing-md;
+  
+  &-2 {
+    grid-template-columns: repeat(2, 1fr);
+    
+    @media (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &-3 {
+    grid-template-columns: repeat(3, 1fr);
+    
+    @media (max-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

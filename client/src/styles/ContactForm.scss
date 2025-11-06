@@ -1,0 +1,136 @@
+@import './variables';
+
+.contact-section {
+  padding: $spacing-xl 0;
+  background-color: $color-primary;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+  
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.contact-info {
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &-subtitle {
+    color: $color-text-gray;
+    font-size: 1.1rem;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.contact-item {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background-color: $color-secondary;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: border-color $transition-fast;
+  
+  &:hover {
+    border-color: $color-accent-red;
+  }
+  
+  .contact-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  
+  h4 {
+    font-size: 1rem;
+    color: $color-text;
+    margin-bottom: $spacing-xs;
+  }
+  
+  p {
+    color: $color-text-gray;
+    line-height: 1.6;
+  }
+}
+
+.contact-form-wrapper {
+  background-color: $color-secondary;
+  padding: $spacing-lg;
+  border-radius: 12px;
+  border: 2px solid $color-accent-red;
+}
+
+.contact-form {
+  h3 {
+    text-align: center;
+    margin-bottom: $spacing-lg;
+    font-size: 1.8rem;
+  }
+  
+  .form-group {
+    margin-bottom: $spacing-md;
+    
+    label {
+      display: block;
+      font-family: $font-heading;
+      font-weight: 600;
+      margin-bottom: $spacing-xs;
+      color: $color-text;
+    }
+    
+    input,
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      background-color: $color-primary;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      color: $color-text;
+      font-family: $font-body;
+      font-size: 1rem;
+      transition: border-color $transition-fast;
+      
+      &:focus {
+        outline: none;
+        border-color: $color-accent-red;
+      }
+      
+      &::placeholder {
+        color: $color-text-gray;
+      }
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+  }
+  
+  .btn {
+    width: 100%;
+    margin-top: $spacing-sm;
+  }
+}
+
+.success-message {
+  padding: $spacing-md;
+  background-color: rgba(#4caf50, 0.2);
+  border: 2px solid #4caf50;
+  border-radius: 4px;
+  color: #4caf50;
+  text-align: center;
+  margin-bottom: $spacing-md;
+  font-weight: 600;
+}
